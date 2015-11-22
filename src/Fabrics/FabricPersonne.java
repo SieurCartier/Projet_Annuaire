@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 
 import Domaine.Personne;
+import Utils.NotCreatedPersonException;
 
 public class FabricPersonne {
 
