@@ -5,13 +5,21 @@ public class Entree {
 	private int index;
 	private String code;
 	private String valeur;
-	private Personne annuaire;
+	private Personne perso;
 
-	public Entree(int index, String code, String valeur, Personne annuaire) {
+	public Entree(int index, String code, String valeur, Personne p) {
 		this.index = index;
 		this.code = code;
 		this.valeur = valeur;
-		this.annuaire = annuaire;
+		this.perso = p;
+	}
+
+	public int getIndex() {
+		return index;
+	}
+
+	public Personne getPersonne() {
+		return perso;
 	}
 
 	public String getCode() {
@@ -32,36 +40,32 @@ public class Entree {
 
 	@Override
 	public String toString() {
-		return code + " : " + valeur ;
+		return code + " : " + valeur;
 	}
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((annuaire == null) ? 0 : annuaire.hashCode());
 		result = prime * result + index;
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (!(obj instanceof Entree)) {
 			return false;
+		}
 		Entree other = (Entree) obj;
-		if (annuaire == null) {
-			if (other.annuaire != null)
-				return false;
-		} else if (!annuaire.equals(other.annuaire))
+		if (index != other.index) {
 			return false;
-		if (index != other.index)
-			return false;
+		}
 		return true;
 	}
 

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 
 import Domaine.Personne;
+import Utils.InexistantPersonException;
 import Utils.NotCreatedPersonException;
 
 public class FabricPersonne {
@@ -30,8 +31,7 @@ public class FabricPersonne {
 		Personne ret = null;
 		try {
 			int idPersonne;
-			PreparedStatement pr = con
-					.prepareStatement("Insert into Annuaire(Nom,Prenom) values(?,?)");
+			PreparedStatement pr = con.prepareStatement("INSERT INTO Annuaire(Nom, Prenom) VALUES(?,?)");
 			pr.setString(1, nom);
 			pr.setString(2, prenom);
 			pr.executeUpdate();
@@ -51,12 +51,26 @@ public class FabricPersonne {
 		}
 		return ret;
 	}
-	
-	public void deletePersonne() {
-		
+
+	public void deletePersonne(Personne p) {
+		try {
+			FabricEntree.getInstanceOf().deleteAllEntries(p);
+			;
+
+			PreparedStatement pr = con.prepareStatement("DELETE FROM Annuaire WHERE idPersonne =?");
+			pr.setInt(1, p.getId());
+
+			int err = pr.executeUpdate();
+
+			if (err != 1) {
+				throw new InexistantPersonException();
+			}
+
+			lesGens.remove(p);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
-	
-	
 
 }

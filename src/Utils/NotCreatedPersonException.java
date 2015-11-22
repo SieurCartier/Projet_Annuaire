@@ -8,7 +8,7 @@ public class NotCreatedPersonException extends Exception {
 	private static final long serialVersionUID = 1L;
 	
 	public NotCreatedPersonException() {
-		super("Impossible de rÃ©cupÃ©rer l'ID  de la personne crÃ©Ã©e") ;
+		super("Impossible de récupérer l'ID  de la personne créée") ;
 	}
 	
 
