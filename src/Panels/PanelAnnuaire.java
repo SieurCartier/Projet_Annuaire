@@ -1,9 +1,7 @@
 package Panels;
 
 import java.awt.event.ActionEvent;
-
 import javax.swing.event.ListSelectionEvent;
-
 import Domaine.Personne;
 import Fabrics.FabricPersonne;
 
@@ -12,18 +10,17 @@ public class PanelAnnuaire extends ManagedListPanel<Personne> {
 	private static final long serialVersionUID = 1L;
 
 	public PanelAnnuaire() {
-		super("Annuaire", "Nom", "PrÃ©nom");
-		/*
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 * model.addElement(new Annuaire(1, "test", "test")) ;
-		 */
+		super("Annuaire", "Nom", "Prénom");
+
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
+		model.addElement(new Personne(1, "test", "test"));
 
 	}
 
@@ -31,8 +28,7 @@ public class PanelAnnuaire extends ManagedListPanel<Personne> {
 		super.actionPerformed(e);
 
 		if (e.getSource() == addButton) {
-			FabricPersonne.getInstanceOf().createPersonne(firstField.getText(),
-					secondField.getText());
+			FabricPersonne.getInstanceOf().createPersonne(firstField.getText(), secondField.getText());
 		}
 		if (e.getSource() == deleteButton) {
 			System.out.println("Delete");

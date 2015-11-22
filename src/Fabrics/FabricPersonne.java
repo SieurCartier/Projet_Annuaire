@@ -2,6 +2,7 @@ package Fabrics;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Collection;
 import java.util.HashMap;
 
 import Domaine.Personne;
@@ -71,6 +72,24 @@ public class FabricPersonne {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+
+	public void populate() {
+		try {
+			PreparedStatement pr = con.prepareStatement("SELECT * FROM Annuaire");
+			ResultSet everybody = pr.executeQuery();
+
+			while (everybody.next()) {
+				lesGens.put(everybody.getInt("idPersonne"), new Personne(everybody.getInt("idPersonne"),
+						everybody.getString("nom"), everybody.getString("prenom")));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public Collection<Personne> getEverybody() {
+		return lesGens.values();
 	}
 
 }

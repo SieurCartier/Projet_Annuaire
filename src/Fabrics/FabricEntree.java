@@ -82,4 +82,26 @@ public class FabricEntree {
 		}
 	}
 
+	public List<Entree> getEntriesOf(Personne p) {
+		if (!lesNums.containsKey(p)) {
+			try {
+
+				PreparedStatement pr = con.prepareStatement("SELECT * FROM Entree where idPersonne=?");
+				pr.setInt(1, p.getId());
+
+				ResultSet allEntries = pr.executeQuery();
+
+				while (allEntries.next()) {
+					List<Entree> temp = new LinkedList<Entree>();
+					temp.add(new Entree(allEntries.getInt("idEntree"), allEntries.getString("code"),
+							allEntries.getString("valeur"), p));
+					lesNums.put(p, temp);
+				}
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return lesNums.get(p);
+	}
+
 }

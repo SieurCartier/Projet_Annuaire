@@ -3,6 +3,7 @@ package Panels;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionEvent;
 import Domaine.Entree;
+import Domaine.Personne;
 
 public class EntreePanel extends ManagedListPanel<Entree> {
 
@@ -10,23 +11,18 @@ public class EntreePanel extends ManagedListPanel<Entree> {
 
 	public EntreePanel() {
 		super("Entree", "Code", "Valeur");
-		/*
-		 * model.addElement(new Entree(1, "test", "test", new Annuaire(1,
-		 * "test", "test"))) ; model.addElement(new Entree(1, "test", "test",
-		 * new Annuaire(1, "test", "test"))) ; model.addElement(new Entree(1,
-		 * "test", "test", new Annuaire(1, "test", "test"))) ;
-		 * model.addElement(new Entree(1, "test", "test", new Annuaire(1,
-		 * "test", "test"))) ; model.addElement(new Entree(1, "test", "test",
-		 * new Annuaire(1, "test", "test"))) ; model.addElement(new Entree(1,
-		 * "test", "test", new Annuaire(1, "test", "test"))) ;
-		 * model.addElement(new Entree(1, "test", "test", new Annuaire(1,
-		 * "test", "test"))) ; model.addElement(new Entree(1, "test", "test",
-		 * new Annuaire(1, "test", "test"))) ; model.addElement(new Entree(1,
-		 * "test", "test", new Annuaire(1, "test", "test"))) ;
-		 * model.addElement(new Entree(1, "test", "test", new Annuaire(1,
-		 * "test", "test"))) ; model.addElement(new Entree(1, "test", "test",
-		 * new Annuaire(1, "test", "test"))) ;
-		 */
+
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
+		model.addElement(new Entree(1, "test", "test", new Personne(1, "test", "test")));
 
 	}
 
@@ -36,7 +32,7 @@ public class EntreePanel extends ManagedListPanel<Entree> {
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		
+
 	}
 
 }
