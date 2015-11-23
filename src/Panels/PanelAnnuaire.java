@@ -6,7 +6,8 @@ import javax.swing.event.ListSelectionEvent;
 import Domaine.Entree;
 import Domaine.Personne;
 import Fabrics.FabricEntree;
-import Fabrics.FabricPersonne;
+import business.AddPersonJob;
+import business.DeletePersonneJob;
 
 public class PanelAnnuaire extends ManagedListPanel<Personne> {
 
@@ -23,28 +24,25 @@ public class PanelAnnuaire extends ManagedListPanel<Personne> {
 		super.actionPerformed(e);
 
 		if (e.getSource() == addButton) {
-			Personne p = FabricPersonne.getInstanceOf().createPersonne(firstField.getText(), secondField.getText());
-			model.addElement(p);
+			AddPersonJob aj = new AddPersonJob();
+			model.addElement(aj.add(firstField.getText(), secondField.getText()));
 		}
 		if (e.getSource() == deleteButton) {
 			Personne p = model.getElementAt(laliste.getSelectedIndex());
-			FabricPersonne.getInstanceOf().deletePersonne(p);
+			DeletePersonneJob dj = new DeletePersonneJob();
+			dj.delete(p);
 			model.removeElement(p);
 		}
 	}
 
-	void updateEntries() {
+	@Override
+	public void valueChanged(ListSelectionEvent lse) {
 		Personne p = model.getElementAt(laliste.getSelectedIndex());
 		panelEntrees.getModel().clear();
 
 		for (Entree e : FabricEntree.getInstanceOf().getEntriesOf(p)) {
 			panelEntrees.getModel().addElement(e);
 		}
-	}
-
-	@Override
-	public void valueChanged(ListSelectionEvent lse) {
-		updateEntries();
 	}
 
 }
