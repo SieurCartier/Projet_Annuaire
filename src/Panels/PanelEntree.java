@@ -2,9 +2,8 @@ package Panels;
 
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionEvent;
-import Domaine.Entree;
-import Domaine.Personne;
-import Fabrics.FabricEntree;
+import Domaine.*;
+import business.*;
 
 public class PanelEntree extends ManagedListPanel<Entree> {
 
@@ -21,12 +20,14 @@ public class PanelEntree extends ManagedListPanel<Entree> {
 
 		if (ae.getSource() == addButton) {
 			Personne p = pannelPerso.getModel().getElementAt(pannelPerso.getJList().getSelectedIndex());
-			Entree e = FabricEntree.getInstanceOf().createEntree(firstField.getText(), secondField.getText(), p);
+			AddEntriesJob aj = new AddEntriesJob();
+			Entree e = aj.add(firstField.getText(), secondField.getText(), p);
 			model.addElement(e);
 		}
 		if (ae.getSource() == deleteButton) {
 			Entree e = model.getElementAt(laliste.getSelectedIndex());
-			FabricEntree.getInstanceOf().deleteEntrie(e);
+			DeleteEntrieJob dj = new DeleteEntrieJob();
+			dj.delete(e);
 			model.removeElement(e);
 		}
 	}

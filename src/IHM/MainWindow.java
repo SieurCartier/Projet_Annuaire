@@ -1,10 +1,8 @@
 package IHM;
 
 import java.awt.GridLayout;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import Panels.PanelEntree;
-import Panels.PanelAnnuaire;
+import javax.swing.*;
+import Panels.*;
 
 public class MainWindow extends JFrame {
 

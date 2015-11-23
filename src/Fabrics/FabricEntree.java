@@ -1,12 +1,8 @@
 package Fabrics;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import Domaine.Entree;
-import Domaine.Personne;
+import java.sql.*;
+import java.util.*;
+import Domaine.*;
 import Utils.NotCreatedEntreeException;
 
 public class FabricEntree {

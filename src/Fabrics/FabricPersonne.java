@@ -1,9 +1,7 @@
 package Fabrics;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Collection;
-import java.util.HashMap;
+import java.sql.*;
+import java.util.*;
 
 import Domaine.Personne;
 import Utils.InexistantPersonException;

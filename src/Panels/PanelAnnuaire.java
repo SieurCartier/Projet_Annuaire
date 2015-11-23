@@ -2,12 +2,9 @@ package Panels;
 
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionEvent;
-
-import Domaine.Entree;
-import Domaine.Personne;
+import Domaine.*;
 import Fabrics.FabricEntree;
-import business.AddPersonJob;
-import business.DeletePersonneJob;
+import business.*;
 
 public class PanelAnnuaire extends ManagedListPanel<Personne> {
 

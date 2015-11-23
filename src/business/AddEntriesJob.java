@@ -1,7 +1,6 @@
 package business;
 
-import Domaine.Entree;
-import Domaine.Personne;
+import Domaine.*;
 import Fabrics.FabricEntree;
 
 public class AddEntriesJob {
