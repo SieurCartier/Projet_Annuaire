@@ -5,8 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-public abstract class ManagedListPanel<T> extends JPanel implements
-		ActionListener, ListSelectionListener {
+public abstract class ManagedListPanel<T> extends JPanel implements ActionListener, ListSelectionListener {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,8 +31,7 @@ public abstract class ManagedListPanel<T> extends JPanel implements
 	protected JButton deleteButton = new JButton("Supprimer");
 	protected JButton clearButton = new JButton("Clear");
 
-	public ManagedListPanel(String listText, String firstLabelText,
-			String secondLabelText) {
+	public ManagedListPanel(String listText, String firstLabelText, String secondLabelText) {
 		setLayout(new GridLayout(3, 1));
 
 		/**************** La liste ***************/
@@ -78,4 +76,12 @@ public abstract class ManagedListPanel<T> extends JPanel implements
 	}
 
 	public abstract void valueChanged(ListSelectionEvent e);
+
+	public JList<T> getJList() {
+		return laliste;
+	}
+
+	public DefaultListModel<T> getModel() {
+		return model;
+	}
 }

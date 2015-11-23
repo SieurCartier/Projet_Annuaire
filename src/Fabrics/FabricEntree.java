@@ -69,13 +69,13 @@ public class FabricEntree {
 		}
 	}
 
-	public void deleteEntrie(Entree e, Personne p) {
+	public void deleteEntrie(Entree e) {
 		try {
 			PreparedStatement pr = con.prepareStatement("DELETE FROM Entree WHERE idEntree =?");
 			pr.setInt(1, e.getIndex());
 			pr.executeUpdate();
 
-			lesNums.get(p).remove(e);
+			lesNums.get(e.getPersonne()).remove(e);
 
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
@@ -85,7 +85,6 @@ public class FabricEntree {
 	public List<Entree> getEntriesOf(Personne p) {
 		if (!lesNums.containsKey(p)) {
 			try {
-
 				PreparedStatement pr = con.prepareStatement("SELECT * FROM Entree where idPersonne=?");
 				pr.setInt(1, p.getId());
 

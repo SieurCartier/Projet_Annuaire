@@ -3,7 +3,7 @@ package IHM;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import Panels.EntreePanel;
+import Panels.PanelEntree;
 import Panels.PanelAnnuaire;
 
 public class MainWindow extends JFrame {
@@ -17,8 +17,14 @@ public class MainWindow extends JFrame {
 		setResizable(false);
 
 		mainPanel = new JPanel(new GridLayout(1, 2));
-		mainPanel.add(new PanelAnnuaire());
-		mainPanel.add(new EntreePanel());
+		PanelAnnuaire pa = null;
+		PanelEntree pe = null;
+
+		pa = new PanelAnnuaire(pe);
+		pe = new PanelEntree(pa);
+
+		mainPanel.add(pa);
+		mainPanel.add(pe);
 		getContentPane().add(mainPanel);
 		pack();
 
